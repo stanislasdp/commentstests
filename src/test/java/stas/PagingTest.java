@@ -1,5 +1,6 @@
 package stas;
 
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -18,7 +19,8 @@ public class PagingTest {
 
     @BeforeClass
     public void init() {
-        app = new ApplicationManager();
+        System.setProperty("webdriver.chrome.driver", "/media/MEDIA/install/linux/instALL/chromedriver");
+        app = new ApplicationManager(new ChromeDriver());
         app.getNavigationManage().openMainPage();
     }
 

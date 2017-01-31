@@ -1,5 +1,6 @@
 package stas;
 
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -21,7 +22,8 @@ public class RefreshMainTest {
 
     @BeforeClass
     public void init() {
-        app = new ApplicationManager();
+        System.setProperty("webdriver.chrome.driver", "/media/MEDIA/install/linux/instALL/chromedriver");
+        app = new ApplicationManager(new ChromeDriver());
         app.getNavigationManage().openMainPage();
     }
 
