@@ -19,7 +19,6 @@ public class Category {
         return Integer.parseInt(category.replaceAll("\\D", ""));
    }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

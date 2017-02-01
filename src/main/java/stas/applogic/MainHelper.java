@@ -33,15 +33,6 @@ public class MainHelper extends DriverHelper {
         pageManager.getMainPage().clickDuplicateCommentButt();
     }
 
-    public void deleteCommentAndConfirm() {
-        pageManager.getMainPage().clickDeleteCommentButt().clickYesButton();
-    }
-
-    public void deleteCommentAndreject() {
-        pageManager.getMainPage().clickDeleteCommentButt().clickNoButton();
-    }
-
-
     public void setCategory(int category) {
         pageManager.getMainPage().selectCategoryToFilter(category);
     }
@@ -100,7 +91,6 @@ public class MainHelper extends DriverHelper {
         gotComment.setActive(isCommentActive);
         gotComment.setCategories(categorList);
         return gotComment;
-
     }
 
 

@@ -5,10 +5,7 @@ import org.testng.Assert;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import stas.applogic.ApplicationManage;
-import stas.applogic.ApplicationManager;
-import stas.applogic.CommentHelper;
-import stas.applogic.MainHelper;
+import stas.applogic.*;
 import stas.model.Comment;
 
 /**
@@ -48,7 +45,8 @@ public class PagingTest {
         commHelp.saveCommentAndReturnToMainPage();
         mainHelp.setCommentsPageNumber(4);
         mainHelp.setCommentsWithCheckBox(0);
-        mainHelp.deleteCommentAndConfirm();
+        DeleteHelper delHelp = app.getDeleteHelper();
+        delHelp.deleteComment();
         Assert.assertFalse(mainHelp.isPageExists(4));
     }
 }

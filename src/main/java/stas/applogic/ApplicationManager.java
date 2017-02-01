@@ -15,6 +15,7 @@ public class ApplicationManager implements ApplicationManage {
     private NavigationManage navigationManage;
     private CommentHelper commentHelper;
     private MainHelper commentsHelper;
+    private DeleteHelper deleteHelper;
 
 
     public ApplicationManager(WebDriver webDriver) {
@@ -43,6 +44,10 @@ public class ApplicationManager implements ApplicationManage {
 
     public CommentHelper getCommentHelper() {
         return commentHelper;
+    }
+
+    public DeleteHelper getDeleteHelper() {
+        return deleteHelper;
     }
 
     public void stopApp() {

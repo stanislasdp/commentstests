@@ -13,4 +13,5 @@ public interface ApplicationManage
     String getStartURL();
     MainHelper getCommentsHelper();
     CommentHelper getCommentHelper();
+    DeleteHelper getDeleteHelper();
 }

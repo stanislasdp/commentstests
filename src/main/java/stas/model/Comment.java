@@ -12,13 +12,6 @@ public class Comment {
     private List<Category> categories;
     private boolean active = true;
 
-   /* public Comment(String commId, String commText, boolean active, List<Category> categories) {
-        this.commentId = commId;
-        this.commentText = commText;
-        this.active = active;
-        this.categories = categories;
-    }*/
-
     public Comment() {
         categories = new ArrayList<>();
     }
