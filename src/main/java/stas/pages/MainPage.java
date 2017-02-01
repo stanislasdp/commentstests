@@ -21,7 +21,6 @@ public class MainPage extends Page {
         super(pages);
     }
 
-
     @FindBy(id = "newbutton")
     @CacheLookup
     private WebElement newComment;
@@ -58,19 +57,19 @@ public class MainPage extends Page {
     @CacheLookup
     private WebElement applyButton;
 
-    @FindBy(xpath = ".//*[@class='webgrid-header']/th[2]/a")
+    @FindBy(css = ".webgrid-header >th:nth-child(2) > a")
     @CacheLookup
     private WebElement numberHeader;
 
-    @FindBy(xpath = ".//*[@class='webgrid-header']/th[3]/a")
+    @FindBy(css = ".webgrid-header >th:nth-child(3) > a")
     @CacheLookup
     private WebElement commentTextHeader;
 
-    @FindBy(xpath = ".//*[@class='webgrid-header']/th[4]/a")
+    @FindBy(css = ".webgrid-header >th:nth-child(4) > a")
     @CacheLookup
     private WebElement activeTextHeader;
 
-    @FindBy(xpath = ".//*[@class='webgrid-header']/th[5]/a")
+    @FindBy(css = ".webgrid-header >th:nth-child(5) > a")
     @CacheLookup
     private WebElement categoryHeader;
 
@@ -78,20 +77,16 @@ public class MainPage extends Page {
     @CacheLookup
     private WebElement categoriesDropDown;
 
-    @FindBy(xpath = ".//*[@class = 'webgrid-row-style' "
-           + "or @class = 'webgrid-alternating-row']/td[@class='numbercolumn']")
+    @FindBy(css = ".webgrid-row-style >.numbercolumn, .webgrid-alternating-row >.numbercolumn")
     private List<WebElement> commentsNumbers;
 
-    @FindBy(xpath = ".//*[@class = 'webgrid-row-style' "
-           + "or @class = 'webgrid-alternating-row']/td[@class='textcolumn']")
+    @FindBy(css = ".webgrid-row-style > .textcolumn, .webgrid-alternating-row > .textcolumn")
     private List<WebElement> commentsText;
 
-    @FindBy(xpath = ".//*[@class = 'webgrid-row-style' "
-            + "or @class = 'webgrid-alternating-row']/td[@class='inactivecolumn']")
+    @FindBy(css = ".webgrid-row-style >.inactivecolumn,.webgrid-alternating-row >.inactivecolumn")
     private List<WebElement> commentsStatuses;
 
-    @FindBy(xpath = ".//*[@class = 'webgrid-row-style' "
-            + "or @class = 'webgrid-alternating-row']/td[@class='categorycolumn']")
+    @FindBy(css = ".webgrid-row-style >.categorycolumn,.webgrid-alternating-row >.categorycolumn")
     private List<WebElement> commentCategories;
 
     @FindBy(css = ".checkedcolumn > input[type='checkbox']")
@@ -99,7 +94,6 @@ public class MainPage extends Page {
 
     @FindBy(css = ".webgrid-footer>td>a")
     List<WebElement> tablepages;
-
 
     @FindBy (css = "#logindisplay>a")
     private WebElement refReshButton;
@@ -202,10 +196,13 @@ public class MainPage extends Page {
 
     public MainPage clickPageNumber(int rowNumber) {
 
-        WebElement nextPage = driver.findElement(
-                By.xpath(".//*[@class='webgrid-footer']/td[1]/a[contains(text(),'" + rowNumber+ "')]"));
-        nextPage.click();
-        return this;
+        for (WebElement pageElement: tablepages) {
+             if (Integer.parseInt(pageElement.getText()) == rowNumber) {
+                 pageElement.click();
+                 return this;
+             }
+        }
+        throw new NoSuchElementException("No such page number is present on the page");
     }
 
     public int getCurrentPageNumber() {
@@ -215,16 +212,7 @@ public class MainPage extends Page {
         return Integer.parseInt(result);
     }
 
-    public MainPage clickNextPage() {
 
-        WebElement lastPage = tablepages.get(tablepages.size() -1);
-        if (lastPage.getText().equals(">")) {
-            lastPage.click();
-            return this;
-        } else {
-            throw new IllegalStateException("next page symbol is not found on the page");
-        }
-    }
 
     public boolean isNextpageExists() {
 
@@ -251,9 +239,21 @@ public class MainPage extends Page {
             prevPage.click();
             return this;
         } else {
-            throw new IllegalStateException("pewvious page symbol is not found on the page");
+            throw new NoSuchElementException("previous page number has not been found oth the page");
         }
     }
+
+    public MainPage clickNextPage() {
+
+        WebElement lastPage = tablepages.get(tablepages.size() -1);
+        if (lastPage.getText().equals(">")) {
+            lastPage.click();
+            return this;
+        } else {
+            throw new NoSuchElementException("next page number has not been found oth the page\"");
+        }
+    }
+
 
     public boolean isPreviousPageExists() {
             WebElement prPage = driver.findElement(By.cssSelector(".webgrid-footer>td>a:first-child"));

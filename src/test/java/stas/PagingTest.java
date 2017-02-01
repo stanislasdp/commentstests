@@ -19,7 +19,8 @@ public class PagingTest {
 
     @BeforeClass
     public void init() {
-        System.setProperty("webdriver.chrome.driver", "/media/MEDIA/install/linux/instALL/chromedriver");
+       // System.setProperty("webdriver.chrome.driver", "/media/MEDIA/install/linux/instALL/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "D:\\KiryanStanislav\\screnshots\\SoftBank\\PCC-22108\\PCC-22108\\PCC-22108\\install");
         app = new ApplicationManager(new ChromeDriver());
         app.getNavigationManage().openMainPage();
     }
