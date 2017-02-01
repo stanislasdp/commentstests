@@ -1,5 +1,8 @@
 package stas.applogic;
 
+import stas.pages.DeletePage;
+import stas.pages.MainPage;
+
 /**
  * Created by skir on 2/1/2017.
  */
@@ -10,10 +13,14 @@ public class DeleteHelper extends DriverHelper {
     }
 
     public void deleteComment() {
-        pageManager.getDeletePage().clickYesButton();
+        MainPage mainPage = pageManager.getMainPage();
+        DeletePage deletePage = mainPage.clickDeleteCommentButt();
+        deletePage.clickYesButton();
     }
 
     public void notDeleteComment() {
-        pageManager.getDeletePage().clickNoButton();
+        MainPage mainPage = pageManager.getMainPage();
+        DeletePage deletePage = mainPage.clickDeleteCommentButt();
+        deletePage.clickNoButton();
     }
 }

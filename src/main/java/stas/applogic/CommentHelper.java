@@ -73,8 +73,8 @@ public class CommentHelper extends DriverHelper {
         CommentPage commentPage = pageManager.getCommentsPage();
         List<Category> avaialableCategories = new ArrayList<>();
 
-        for (int i = 0; i < commentPage.getAvaialbleCategoriesLength() ; i++) {
-            Category category = new Category(commentPage.getAvaiableCategoryText(i));
+        for (int i = 0; i < commentPage.getAvailableCategoriesLength() ; i++) {
+            Category category = new Category(commentPage.getAvaialbleCategoryText(i));
             avaialableCategories.add(category);
         }
         return avaialableCategories;
@@ -83,10 +83,10 @@ public class CommentHelper extends DriverHelper {
     public Comment setAllCategoriesToComment(Comment comment) {
         CommentPage commentPage = pageManager.getCommentsPage();
         List<Category> commentCategories = comment.getCategories();
-       int categoriesLength =  commentPage.getAvaialbleCategoriesLength();
+       int categoriesLength =  commentPage.getAvailableCategoriesLength();
 
         for (int i = 0; i < categoriesLength ; i++) {
-            Category category = new Category(commentPage.getAvaiableCategoryText(i));
+            Category category = new Category(commentPage.getAvaialbleCategoryText(i));
             if (!commentCategories.contains(category)) {
                 commentCategories.add(category);
             }
@@ -124,7 +124,7 @@ public class CommentHelper extends DriverHelper {
         List<Category> commentCategories = comment.getCategories();
         commentCategories.clear();
 
-        for (int i = 0; i < commentPage.getSeelctedCategoriesLength() ; i++) {
+        for (int i = 0; i < commentPage.getSelectedCategoriesLength() ; i++) {
             Category category = new Category(commentPage.getSelectedCategoryText(i));
             commentCategories.add(category);
         }

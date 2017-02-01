@@ -24,6 +24,7 @@ public class ApplicationManager implements ApplicationManage {
         navigationManage = new NavigationManager(this);
         commentHelper = new CommentHelper(this);
         commentsHelper = new MainHelper(this);
+        deleteHelper = new DeleteHelper(this);
     }
 
     public String getStartURL() {

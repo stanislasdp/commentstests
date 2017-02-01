@@ -28,13 +28,11 @@ public class CommentPage extends Page {
     @FindBy(css ="div[id='alvailablecategories'] > .categoryitem > span")
     private List<WebElement> availableCategoriesText;
 
-
     @FindBy(css ="div[id='selectedCategories'] > .categoryitem > input[type ='checkbox']")
     private List<WebElement> selectedCategoriesCheckboxes;
 
     @FindBy(css ="div[id='selectedCategories'] > .categoryitem > span")
     private List<WebElement> selectedCategoriesText;
-
 
     @FindBy(css = "input[name='CurSelect']")
     private WebElement addSelectedCategoriesButton;
@@ -94,7 +92,7 @@ public class CommentPage extends Page {
         return active.isSelected();
     }
 
-    public int getAvaialbleCategoriesLength() {
+    public int getAvailableCategoriesLength() {
         return  availableCategorieschekboxes.size();
     }
 
@@ -108,13 +106,12 @@ public class CommentPage extends Page {
         return this;
     }
 
-    public String getAvaiableCategoryText(int categoryNumber) {
+    public String getAvaialbleCategoryText(int categoryNumber) {
         return availableCategoriesText.get(categoryNumber).getText();
     }
 
 
     public CommentPage checkSelectedCategory(int categoryNumber) {
-
         for (WebElement checkbox : selectedCategoriesCheckboxes) {
             int checkBoxNumber = Integer.parseInt(checkbox.getAttribute("value"));
             if (checkBoxNumber == categoryNumber + 1) {
@@ -128,7 +125,7 @@ public class CommentPage extends Page {
        return selectedCategoriesText.get(categoryNumber).getText();
     }
 
-    public int getSeelctedCategoriesLength() {
+    public int getSelectedCategoriesLength() {
         return  selectedCategoriesCheckboxes.size();
     }
 
@@ -153,7 +150,6 @@ public class CommentPage extends Page {
         return this;
     }
 
-
     public CommentPage clickRefreshButton() {
         refreshButton.click();
         return this;
@@ -168,7 +164,6 @@ public class CommentPage extends Page {
         saveAndReturnButton.click();
         return pages.getMainPage();
     }
-
 
 
     public CommentPage clickReturnButton() {

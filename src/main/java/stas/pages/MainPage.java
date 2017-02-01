@@ -29,21 +29,17 @@ public class MainPage extends Page {
     @CacheLookup
     private WebElement duplicateComment;
 
-
     @FindBy(css = "input[value='Edit..']")
     @CacheLookup
     private WebElement editComment;
-
 
     @FindBy(css = "input[value='Delete']")
     @CacheLookup
     private WebElement deleteComment;
 
-
     @FindBy(id = "commandSelect")
     @CacheLookup
     private WebElement actionDropDown;
-
 
     @FindBy(id= "SelectedCateg")
     @CacheLookup
