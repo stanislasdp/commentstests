@@ -9,7 +9,6 @@ import java.util.Properties;
  */
 public class PropertyLoader  {
 
-
     public static String getProperty(String property) {
         if (property == null) {
             throw new NullPointerException("property is null");

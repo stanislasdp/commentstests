@@ -2,6 +2,7 @@ package stas;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import stas.applogic.ApplicationManage;
@@ -20,7 +21,7 @@ public class PagingTest {
     @BeforeClass
     public void init() {
        // System.setProperty("webdriver.chrome.driver", "/media/MEDIA/install/linux/instALL/chromedriver");
-        System.setProperty("webdriver.chrome.driver", "D:\\KiryanStanislav\\screnshots\\SoftBank\\PCC-22108\\PCC-22108\\PCC-22108\\install");
+        System.setProperty("webdriver.chrome.driver", "D:\\KiryanStanislav\\screnshots\\SoftBank\\PCC-22108\\PCC-22108\\PCC-22108\\selenium\\chromedriver.exe");
         app = new ApplicationManager(new ChromeDriver());
         app.getNavigationManage().openMainPage();
     }

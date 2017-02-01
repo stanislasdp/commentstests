@@ -16,6 +16,7 @@ public class CommentPage extends Page {
 
     @FindBy (id = "Text")
     private WebElement commentText;
+
     @FindBy (id = "Number")
     private WebElement commentNumber;
     @FindBy (id = "Active")
@@ -59,7 +60,6 @@ public class CommentPage extends Page {
     @FindBy(css = "#editor-navigation > a")
     private WebElement returnButton;
 
-
     public CommentPage(PageManager pages) {
         super(pages);
     }
@@ -98,12 +98,10 @@ public class CommentPage extends Page {
         return  availableCategorieschekboxes.size();
     }
 
-
     public CommentPage checkAvailableCategory(int categoryNumber) {
-
         for (WebElement checkbox : availableCategorieschekboxes) {
             int checkBoxNumber = Integer.parseInt(checkbox.getAttribute("value"));
-            if (checkBoxNumber == categoryNumber +1) {
+            if (checkBoxNumber == categoryNumber + 1) {
                 checkbox.click();
             }
         }
@@ -119,7 +117,7 @@ public class CommentPage extends Page {
 
         for (WebElement checkbox : selectedCategoriesCheckboxes) {
             int checkBoxNumber = Integer.parseInt(checkbox.getAttribute("value"));
-            if (checkBoxNumber == categoryNumber +1) {
+            if (checkBoxNumber == categoryNumber + 1) {
                 checkbox.click();
             }
         }
@@ -130,11 +128,9 @@ public class CommentPage extends Page {
        return selectedCategoriesText.get(categoryNumber).getText();
     }
 
-    public int getSelelctedCategoriesLength() {
+    public int getSeelctedCategoriesLength() {
         return  selectedCategoriesCheckboxes.size();
     }
-
-
 
 
     public CommentPage clickAddSelectedCategories() {
@@ -187,10 +183,4 @@ public class CommentPage extends Page {
         wait.until(presenceOfElementLocated(By.cssSelector("#Number")));
         return this;
     }
-
-    /*  public CommentPage checkCategoryValidation (String text)  {
-        WebElement webElement = driver.findElement(By.xpath("//div[@id='errorfield' "
-               + "and contains(.,'"+ text + "')]"));
-        return this;
-    }*/
 }

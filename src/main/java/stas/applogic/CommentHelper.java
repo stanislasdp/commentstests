@@ -124,7 +124,7 @@ public class CommentHelper extends DriverHelper {
         List<Category> commentCategories = comment.getCategories();
         commentCategories.clear();
 
-        for (int i = 0; i < commentPage.getSelelctedCategoriesLength() ; i++) {
+        for (int i = 0; i < commentPage.getSeelctedCategoriesLength() ; i++) {
             Category category = new Category(commentPage.getSelectedCategoryText(i));
             commentCategories.add(category);
         }
